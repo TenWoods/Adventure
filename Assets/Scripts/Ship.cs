@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipMove : MonoBehaviour 
+public class Ship : MonoBehaviour 
 {
 	[SerializeField]
 	private float speed;
@@ -14,6 +14,11 @@ public class ShipMove : MonoBehaviour
 	}
 
 	private void Update() 
+	{
+		Move();
+	}
+
+	private void Move()
 	{
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
