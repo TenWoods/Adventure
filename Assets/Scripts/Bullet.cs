@@ -24,12 +24,11 @@ public class Bullet : MonoBehaviour
 		}
 	}
 
-	public void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Enter");
 		if (other.tag == "Edge")
 		{
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 	}
 }

@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: b622f3e3af21c4449940bef8343fa3c2
+guid: 3a5a424d7ee8e964786bb92d0ff2c134
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: SHIP_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -41,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,31 +115,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: SHIP_0
-      rect:
-        serializedVersion: 2
-        x: 396
-        y: 582
-        width: 207
-        height: 303
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0204ee884ae114f4499e4721dbbec316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0c12c491f575ad2488b5ab52cfde32da
+    spriteID: 
     vertices: []
     indices: 
     edges: []

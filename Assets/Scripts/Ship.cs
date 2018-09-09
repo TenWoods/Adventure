@@ -34,7 +34,6 @@ public class Ship : MonoBehaviour
 			{
 				bullet = GameObject.Instantiate(bullet_Prefab, shootPoints[i].position, shootPoints[i].rotation);
 				bullet.GetComponent<Bullet>().Target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-				Debug.Log("Instantiate" + i);
 			}
 		}
 	}
