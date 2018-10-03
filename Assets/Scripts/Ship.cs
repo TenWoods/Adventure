@@ -94,19 +94,19 @@ public class Ship : MonoBehaviour
 	/// </summary>
 	private void Skill()
 	{
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKey(KeyCode.Q))
 		{
 			activeSkills[activeSkillButtons[KeyCode.Q]].Enable();
 		}
-		if (Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetKey(KeyCode.LeftShift))
 		{
 			activeSkills[activeSkillButtons[KeyCode.LeftShift]].Enable();
 		}
-		if (Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKey(KeyCode.F))
 		{
 			activeSkills[activeSkillButtons[KeyCode.F]].Enable();
 		}
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKey(KeyCode.Space))
 		{
 			activeSkills[activeSkillButtons[KeyCode.Space]].Enable();
 		}
