@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 				Destroy(gameObject);
 			}
 		}
-		else
+		else if (other.tag != "Player")
 		{
 			if (other.tag == "Box")
 			{

@@ -6,7 +6,28 @@ public class ActiveSkill : MonoBehaviour
 {
 	[SerializeField]
 	[Header("技能冷却时间")]
-	protected float coldTime = 5.0f;
+	private float coldTime = 5.0f;
+	private float coldTimer;
+	protected bool isCold;
+
+	private void Start()  
+	{
+		coldTimer = coldTime;
+		isCold = false;
+	}
+
+	private void Update() 
+	{
+		if (isCold)
+		{
+			coldTimer += Time.deltaTime;
+			if (coldTimer >= coldTime)
+			{
+				coldTimer = 0;
+				isCold = false;
+			}
+		}
+	}
 
 	/// <summary>
 	/// 技能发动

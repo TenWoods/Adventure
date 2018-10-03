@@ -20,6 +20,9 @@ public class Ship : MonoBehaviour
 	[Header("血量UI")]
 	private Slider shipHPUI;
 	[SerializeField]
+	[Header("发射间隔时间")]
+	private float shootColdTime;
+	[SerializeField]
 	//所有的主动技能
 	private ActiveSkill[] activeSkills;
 	[SerializeField]
@@ -29,9 +32,11 @@ public class Ship : MonoBehaviour
 	private Dictionary<KeyCode, int> activeSkillButtons;
 	//携带被动技能
 	private List<int> passitiveSkillsON;
-	private float shipHPcurrent;
+	//飞船炮口组件
 	private Canon shipCanon;
+	private float shipHPcurrent;
 	private Rigidbody2D rb;
+	private float shootTimer;
 	
 	private void Start() 
 	{
@@ -43,6 +48,7 @@ public class Ship : MonoBehaviour
 													 {KeyCode.Space, 0}};
 		passitiveSkillsON = new List<int>();
 		shipHPcurrent = shipHP;
+		shootTimer = shootColdTime;
 	}
 
 	private void Update() 
@@ -59,9 +65,17 @@ public class Ship : MonoBehaviour
 	/// </summary>
 	private void Shoot()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0))
 		{
-			shipCanon.Shoot(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)), 0);
+			if (shootTimer >= shootColdTime)
+			{
+				shipCanon.Shoot(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)), 0);
+				shootTimer = 0;
+			}
+			else
+			{
+				shootTimer += Time.deltaTime;
+			}
 		}
 	}
 
@@ -103,6 +117,10 @@ public class Ship : MonoBehaviour
 	{
 		if (other.tag == "Bullet")
 		{
+			if (other.GetComponent<Bullet>().BelongID == 0)
+			{
+				return;
+			}
 			shipHPcurrent -= other.GetComponent<Bullet>().Damage;
 			UpdateUI();
 		}
