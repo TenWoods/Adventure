@@ -9,7 +9,16 @@ public class Canon : MonoBehaviour
 	private Bullet[] bulletPrefabs;
 	//子弹发射点
 	[SerializeField]
+	[Header("普通子弹发射点")]
 	private Transform[] shootPoints;
+	[SerializeField]
+	[Header("AOE发射点")]
+	private Transform aoePoint;
+	[SerializeField]
+	[Header("AOE冷却时间")]
+	private float aoeColdTime;
+	private float aoeTimer;
+	private bool isReady_AOE = true;
 	private int currentBulletID = 0;
 	
 	public int CurrentBulletID
@@ -36,6 +45,11 @@ public class Canon : MonoBehaviour
 		}
 	}
 
+	public void AOEShoot(Vector3 direction)
+	{
+		isReady_AOE = false;
+	}
+
 	/// <summary>
 	/// 切换子弹类型
 	/// </summary>
@@ -48,5 +62,19 @@ public class Canon : MonoBehaviour
 			return;
 		}
 		currentBulletID = bulletID;
+	}
+
+
+	private void Update()  
+	{
+		if (!isReady_AOE)
+		{
+			aoeTimer += Time.deltaTime;
+			if (aoeTimer >= aoeColdTime)
+			{
+				aoeTimer = 0;
+				isReady_AOE = true;
+			}
+		}
 	}
 }

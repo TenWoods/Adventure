@@ -77,6 +77,10 @@ public class Ship : MonoBehaviour
 				shootTimer += Time.deltaTime;
 			}
 		}
+		if (Input.GetMouseButtonDown(1))
+		{
+			
+		}
 	}
 
 	/// <summary>
